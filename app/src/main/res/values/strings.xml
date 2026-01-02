@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Battery Voltage</string>
+
+    <!-- Voltage Display -->
+    <string name="voltage_label">Battery Voltage</string>
+    <string name="voltage_format">%.2f V</string>
+    <string name="voltage_invalid">--</string>
+
+    <!-- Charging Status -->
+    <string name="status_charging">Charging</string>
+    <string name="status_not_charging">Not Charging</string>
+    <string name="status_full">Full</string>
+    <string name="status_unknown">Unknown</string>
+
+    <!-- Threshold Settings -->
+    <string name="threshold_label">Warning Threshold</string>
+    <string name="threshold_format">%.2f V</string>
+    <string name="threshold_reset">Reset to Default</string>
+
+    <!-- Warning Messages -->
+    <string name="warning_approaching">Approaching threshold</string>
+    <string name="warning_reached">Threshold reached - stop charging</string>
+</resources>
