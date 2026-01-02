@@ -57,8 +57,8 @@ As a user with specific battery health goals, I want to adjust the voltage thres
 
 **Acceptance Scenarios**:
 
-1. **Given** the app is displaying voltage, **When** the user views the threshold control, **Then** the current threshold value is visible
-2. **Given** the user wants to change the threshold, **When** they adjust the threshold control, **Then** the new threshold value is applied immediately
+1. **Given** the app is displaying voltage, **When** the user views the threshold slider, **Then** the current threshold value is visible
+2. **Given** the user wants to change the threshold, **When** they drag the slider, **Then** the new threshold value is applied immediately
 3. **Given** the user has set a custom threshold, **When** they close and reopen the app, **Then** the previously set threshold is restored
 4. **Given** the user wants to reset to default, **When** they choose to reset, **Then** the threshold returns to the default value (4.00V)
 
@@ -106,7 +106,7 @@ As a user who wants to stop charging at my chosen voltage, I want to see visual 
 - **FR-004**: App MUST display the current charging status (charging or not charging)
 - **FR-005**: App MUST display a warning indicator when voltage is within 0.05V below the user's configured threshold
 - **FR-006**: App MUST display a strong warning indicator when voltage reaches or exceeds the user's configured threshold
-- **FR-007**: App MUST allow users to adjust the warning threshold voltage
+- **FR-007**: App MUST allow users to adjust the warning threshold voltage via a slider control
 - **FR-008**: App MUST persist the user's threshold setting across app restarts
 - **FR-009**: App MUST provide a default threshold value of 4.00V
 - **FR-010**: App MUST allow users to reset the threshold to the default value
