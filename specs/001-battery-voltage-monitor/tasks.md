@@ -3,7 +3,7 @@
 **Input**: Design documents from `/specs/001-battery-voltage-monitor/`
 **Prerequisites**: plan.md (required), spec.md (required for user stories), research.md, data-model.md, quickstart.md
 
-**Tests**: Not explicitly requested in specification. Test tasks omitted.
+**Tests**: Unit tests included for core logic (ThresholdRepository, BatteryMonitor). UI instrumented tests omitted.
 
 **Organization**: Tasks are grouped by user story to enable independent implementation and testing of each story.
 
@@ -138,16 +138,29 @@ Based on plan.md structure:
 
 ---
 
-## Phase 7: Polish & Cross-Cutting Concerns
+## Phase 7: Unit Tests
+
+**Purpose**: Validate core logic with automated unit tests
+
+- [ ] T046 [P] Create ThresholdRepositoryTest.kt with tests for get/set/reset/validation in app/src/test/java/com/example/batteryvoltage/ThresholdRepositoryTest.kt
+- [ ] T047 [P] Create BatteryMonitorTest.kt with tests for voltage conversion and status mapping in app/src/test/java/com/example/batteryvoltage/BatteryMonitorTest.kt
+- [ ] T048 Run unit tests and verify all pass
+
+**Checkpoint**: Unit tests passing
+
+---
+
+## Phase 8: Polish & Cross-Cutting Concerns
 
 **Purpose**: Final refinements and validation
 
-- [ ] T046 Ensure UI is readable at arm's length (~50cm) with appropriate text sizes in app/src/main/java/com/example/batteryvoltage/ui/components/VoltageDisplay.kt
-- [ ] T047 Verify dark mode theme applies correctly to all components in app/src/main/java/com/example/batteryvoltage/ui/theme/Theme.kt
-- [ ] T048 Ensure stable display during frequent updates (no flicker/layout shifts) in app/src/main/java/com/example/batteryvoltage/ui/components/VoltageDisplay.kt
-- [ ] T049 Validate app stops updates when backgrounded and resumes on foreground in app/src/main/java/com/example/batteryvoltage/MainActivity.kt
-- [ ] T050 Run quickstart.md validation scenarios (voltage, charging, threshold, persistence)
-- [ ] T051 Build debug APK and test on Samsung device per quickstart.md
+- [ ] T049 Ensure UI is readable at arm's length (~50cm) with appropriate text sizes in app/src/main/java/com/example/batteryvoltage/ui/components/VoltageDisplay.kt
+- [ ] T050 Verify dark mode theme applies correctly to all components in app/src/main/java/com/example/batteryvoltage/ui/theme/Theme.kt
+- [ ] T051 Ensure stable display during frequent updates (no flicker/layout shifts) in app/src/main/java/com/example/batteryvoltage/ui/components/VoltageDisplay.kt
+- [ ] T052 Validate app stops updates when backgrounded and resumes on foreground in app/src/main/java/com/example/batteryvoltage/MainActivity.kt
+- [ ] T053 Run quickstart.md validation scenarios (voltage, charging, threshold, persistence)
+- [ ] T054 Validate minimal resource usage during 30+ minute monitoring session (SC-006)
+- [ ] T055 Build debug APK and test on Samsung device per quickstart.md
 
 ---
 
@@ -160,7 +173,8 @@ Based on plan.md structure:
 - **User Stories (Phase 3-6)**: All depend on Foundational phase completion
   - User stories can proceed sequentially in priority order (P1 → P2 → P2 → P3)
   - Or in parallel if multiple developers available
-- **Polish (Phase 7)**: Depends on all user stories being complete
+- **Unit Tests (Phase 7)**: Depends on User Stories 1 and 3 (core logic implementation)
+- **Polish (Phase 8)**: Depends on all user stories and unit tests being complete
 
 ### User Story Dependencies
 
@@ -234,7 +248,8 @@ Task: "Create WarningLevel.kt" (T014)
 3. Add User Story 2 → Test independently → Voltage + charging status
 4. Add User Story 3 → Test independently → Configurable threshold
 5. Add User Story 4 → Test independently → Full warning system
-6. Polish phase → Final validation and testing
+6. Unit Tests phase → Automated validation of core logic
+7. Polish phase → Final validation and testing
 
 ### Single Developer Strategy
 
@@ -245,7 +260,8 @@ For solo development, execute phases sequentially in priority order:
 4. User Story 2 (T024-T028)
 5. User Story 3 (T029-T038)
 6. User Story 4 (T039-T045)
-7. Polish (T046-T051)
+7. Unit Tests (T046-T048)
+8. Polish (T049-T055)
 
 ---
 

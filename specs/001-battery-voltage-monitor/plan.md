@@ -19,7 +19,7 @@ Native Android application that displays OS-reported battery voltage in real-tim
 **Project Type**: Mobile (single Android app)
 **Performance Goals**: UI updates at ~1Hz (1 second interval), 60fps smooth animations
 **Constraints**: Minimal battery impact, no background services, foreground-only operation
-**Scale/Scope**: Single screen, ~5 UI components, ~10 source files
+**Scale/Scope**: Single screen, ~5 UI components, ~15 source files (including tests)
 
 ## Constitution Check
 
@@ -61,6 +61,7 @@ app/
     │   ├── AndroidManifest.xml
     │   ├── java/com/example/batteryvoltage/
     │   │   ├── MainActivity.kt           # Single activity entry point
+    │   │   ├── BatteryViewModel.kt       # StateFlow-based ViewModel for UI state
     │   │   ├── ui/
     │   │   │   ├── theme/
     │   │   │   │   ├── Color.kt          # Color definitions
@@ -71,6 +72,9 @@ app/
     │   │   │       ├── ChargingStatus.kt # Charging indicator component
     │   │   │       └── ThresholdSlider.kt# Threshold control component
     │   │   ├── data/
+    │   │   │   ├── BatteryEnums.kt       # ChargingStatus and PluggedType enums
+    │   │   │   ├── WarningLevel.kt       # Warning level enum (none/approaching/reached)
+    │   │   │   ├── BatteryUiState.kt     # UI state data class
     │   │   │   └── ThresholdRepository.kt# SharedPreferences wrapper
     │   │   └── service/
     │   │       └── BatteryMonitor.kt     # Battery broadcast receiver logic
